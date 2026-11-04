@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - Smart Hostel Complaint System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Smart Hostel Complaint System</h1>
+    <p>Student portal</p>
+  </header>
+
+  <main class="narrow">
+    <section class="card" id="loginCard">
+      <h2>Student Login</h2>
+      <form id="loginForm">
+        <label>Email
+          <input type="email" id="loginEmail" required>
+        </label>
+        <label>Password
+          <input type="password" id="loginPassword" required>
+        </label>
+        <button type="submit">Log in</button>
+        <p id="loginMsg"></p>
+      </form>
+      <p class="hint">New student? <a href="#" id="showRegister">Create an account</a></p>
+    </section>
+
+    <section class="card hidden" id="registerCard">
+      <h2>Create Account</h2>
+      <form id="registerForm">
+        <label>Full name
+          <input type="text" id="regName" required>
+        </label>
+        <label>Email
+          <input type="email" id="regEmail" required>
+        </label>
+        <label>Room number
+          <input type="text" id="regRoom" placeholder="e.g. 204">
+        </label>
+        <label>Password (at least 6 characters)
+          <input type="password" id="regPassword" minlength="6" required>
+        </label>
+        <button type="submit">Register</button>
+        <p id="registerMsg"></p>
+      </form>
+      <p class="hint">Already registered? <a href="#" id="showLogin">Log in</a></p>
+    </section>
+  </main>
+
+  <script src="auth.js"></script>
+</body>
+</html>

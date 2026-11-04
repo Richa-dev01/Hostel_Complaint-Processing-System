@@ -1,10 +1,36 @@
 const API = "http://localhost:8080/api/complaints";
-const STUDENT_ID = 1;   // fixed for now; real login comes in Stage 2
 
 const CATEGORIES = {
   1: "Electrical", 2: "Plumbing", 3: "Cleaning", 4: "Wi-Fi/Internet",
   5: "Furniture", 6: "Water supply", 7: "Maintenance", 8: "Other"
 };
+
+// ---- must be logged in as a student, otherwise go to the login page ----
+const token = localStorage.getItem("token");
+const role = localStorage.getItem("role");
+if (!token || role !== "STUDENT") {
+  window.location.replace("login.html");
+}
+
+document.getElementById("userName").textContent = localStorage.getItem("name") || "";
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  localStorage.clear();
+  window.location.replace("login.html");
+});
+
+function authHeaders() {
+  return { "Content-Type": "application/json", "Authorization": "Bearer " + token };
+}
+
+// token missing, wrong or expired -> back to login
+function sessionExpired(response) {
+  if (response.status === 401) {
+    localStorage.clear();
+    window.location.replace("login.html");
+    return true;
+  }
+  return false;
+}
 
 const form = document.getElementById("complaintForm");
 const message = document.getElementById("message");
@@ -14,8 +40,8 @@ const emptyMsg = document.getElementById("emptyMsg");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
+  // no studentId here: the server reads it from the login token
   const complaint = {
-    studentId: STUDENT_ID,
     categoryId: Number(document.getElementById("categoryId").value),
     roomNo: document.getElementById("roomNo").value,
     description: document.getElementById("description").value,
@@ -25,9 +51,10 @@ form.addEventListener("submit", async (event) => {
   try {
     const response = await fetch(API, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: authHeaders(),
       body: JSON.stringify(complaint)
     });
+    if (sessionExpired(response)) return;
     if (!response.ok) throw new Error("Server returned " + response.status);
 
     const result = await response.json();
@@ -44,7 +71,8 @@ form.addEventListener("submit", async (event) => {
 async function loadComplaints() {
   rows.innerHTML = "";
   try {
-    const response = await fetch(API + "?studentId=" + STUDENT_ID);
+    const response = await fetch(API, { headers: authHeaders() });
+    if (sessionExpired(response)) return;
     const complaints = await response.json();
 
     complaints.sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));

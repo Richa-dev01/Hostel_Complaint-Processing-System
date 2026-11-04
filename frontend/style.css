@@ -20,3 +20,9 @@ th, td { border-bottom: 1px solid #ddd; padding: 8px; text-align: left; }
 th { background: #eef2f9; }
 .badge { padding: 2px 8px; border-radius: 10px; background: #e3e8f4; font-size: 12px; }
 .hint { color: #777; }
+
+.narrow { max-width: 460px; }
+.hidden { display: none; }
+a { color: #1f4e9c; }
+header .logout { background: #fff; color: #1f4e9c; margin-left: 12px; padding: 6px 12px; }
+header .logout:hover { background: #e3e8f4; }
