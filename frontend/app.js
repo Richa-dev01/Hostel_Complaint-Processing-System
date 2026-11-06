@@ -82,7 +82,7 @@ async function loadComplaints() {
       const tr = document.createElement("tr");
       const values = [
         c.complaintId, c.roomNo, CATEGORIES[c.categoryId] || c.categoryId,
-        c.description, c.priority, c.status,
+        c.description, c.priority, c.status, c.assignedTo || "", c.resolutionRemarks || "",
         c.createdAt ? c.createdAt.replace("T", " ").substring(0, 16) : ""
       ];
       values.forEach((value, index) => {

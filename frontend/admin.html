@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard - Smart Hostel Complaint System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, <span id="userName"></span>
+      <button id="logoutBtn" type="button" class="logout">Log out</button>
+    </p>
+  </header>
+
+  <main class="wide">
+    <section class="summary">
+      <div class="box"><span id="sumTotal">0</span><small>Total complaints</small></div>
+      <div class="box"><span id="sumPending">0</span><small>Pending</small></div>
+      <div class="box"><span id="sumResolved">0</span><small>Resolved</small></div>
+    </section>
+
+    <section class="card">
+      <h2>Filter complaints</h2>
+      <div class="filters">
+        <input type="text" id="fSearch" placeholder="Search ID, room or description">
+        <select id="fStatus">
+          <option value="">All statuses</option>
+          <option value="SUBMITTED">Submitted</option>
+          <option value="IN_REVIEW">In review</option>
+          <option value="ASSIGNED">Assigned</option>
+          <option value="IN_PROGRESS">In progress</option>
+          <option value="RESOLVED">Resolved</option>
+        </select>
+        <select id="fCategory">
+          <option value="">All categories</option>
+          <option value="1">Electrical</option>
+          <option value="2">Plumbing</option>
+          <option value="3">Cleaning</option>
+          <option value="4">Wi-Fi/Internet</option>
+          <option value="5">Furniture</option>
+          <option value="6">Water supply</option>
+          <option value="7">Maintenance</option>
+          <option value="8">Other</option>
+        </select>
+        <select id="fPriority">
+          <option value="">All priorities</option>
+          <option value="HIGH">High</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="LOW">Low</option>
+        </select>
+        <button id="applyBtn" type="button">Apply</button>
+        <button id="clearBtn" type="button" class="secondary">Clear</button>
+      </div>
+    </section>
+
+    <section class="card" id="managePanel" hidden>
+      <h2>Manage complaint <span id="panelId"></span></h2>
+      <p id="panelInfo" class="hint"></p>
+      <form id="manageForm">
+        <label>Status
+          <select id="mStatus">
+            <option value="SUBMITTED">Submitted</option>
+            <option value="IN_REVIEW">In review</option>
+            <option value="ASSIGNED">Assigned</option>
+            <option value="IN_PROGRESS">In progress</option>
+            <option value="RESOLVED">Resolved</option>
+          </select>
+        </label>
+        <label>Assigned to
+          <input type="text" id="mAssigned" placeholder="e.g. Electrician Ramesh">
+        </label>
+        <label>Remarks
+          <textarea id="mRemarks" rows="2" placeholder="Resolution remarks"></textarea>
+        </label>
+        <button type="submit">Save changes</button>
+        <button type="button" id="deleteBtn" class="danger">Delete</button>
+        <button type="button" id="closeBtn" class="secondary">Close</button>
+        <p id="panelMsg"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>All complaints</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Student</th><th>Room</th><th>Category</th><th>Description</th>
+            <th>Priority</th><th>Status</th><th>Assigned to</th><th>Date</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="complaintRows"></tbody>
+      </table>
+      <p id="emptyMsg" class="hint"></p>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

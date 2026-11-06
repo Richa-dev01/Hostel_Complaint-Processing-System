@@ -26,3 +26,18 @@ th { background: #eef2f9; }
 a { color: #1f4e9c; }
 header .logout { background: #fff; color: #1f4e9c; margin-left: 12px; padding: 6px 12px; }
 header .logout:hover { background: #e3e8f4; }
+
+.wide { max-width: 1100px; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+.box { background: #fff; border-radius: 8px; padding: 16px; text-align: center;
+       box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+.box span { display: block; font-size: 32px; font-weight: bold; color: #1f4e9c; }
+.box small { color: #666; }
+.filters { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto auto; gap: 8px; }
+.filters input, .filters select { margin-top: 0; }
+button.secondary { background: #6b7a90; }
+button.danger { background: #c62828; }
+button.danger:hover { background: #a01f1f; }
+.badge.resolved { background: #d6f0dc; color: #1a7f37; }
+#managePanel button { margin-right: 8px; }
+@media (max-width: 800px) { .filters { grid-template-columns: 1fr 1fr; } }
