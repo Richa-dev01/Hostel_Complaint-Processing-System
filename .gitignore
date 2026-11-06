@@ -3,3 +3,4 @@ target/
 *.iml
 .env
 run.log
+hostel-api/uploads/

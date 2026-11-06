@@ -115,6 +115,14 @@ function openPanel(c) {
   document.getElementById("mStatus").value = c.status;
   document.getElementById("mAssigned").value = c.assignedTo || "";
   document.getElementById("mRemarks").value = c.resolutionRemarks || "";
+  const photoBox = document.getElementById("panelPhoto");
+  photoBox.textContent = "";
+  if (c.imageUrl) {
+    const img = document.createElement("img");
+    img.src = "http://localhost:8080" + c.imageUrl;
+    img.className = "evidence";
+    photoBox.appendChild(img);
+  }
   panel.hidden = false;
   panel.scrollIntoView({ behavior: "smooth" });
 }

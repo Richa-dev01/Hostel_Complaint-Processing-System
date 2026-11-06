@@ -47,6 +47,10 @@
           <textarea id="description" rows="3" placeholder="Describe the problem"></textarea>
         </label>
 
+        <label>Photo of the problem (optional)
+          <input type="file" id="photo" accept="image/*">
+        </label>
+
         <button type="submit">Submit Complaint</button>
         <p id="message"></p>
       </form>
@@ -59,7 +63,7 @@
         <thead>
           <tr>
             <th>ID</th><th>Room</th><th>Category</th>
-            <th>Description</th><th>Priority</th><th>Status</th><th>Assigned to</th><th>Remarks</th><th>Date</th>
+            <th>Description</th><th>Priority</th><th>Status</th><th>Assigned to</th><th>Remarks</th><th>Photo</th><th>Date</th>
           </tr>
         </thead>
         <tbody id="complaintRows"></tbody>

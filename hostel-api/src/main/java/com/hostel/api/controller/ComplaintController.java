@@ -28,6 +28,10 @@ public class ComplaintController {
         }
         // the student ID is taken from the login token, never from the request body
         complaint.setStudentId((Integer) request.getAttribute("userId"));
+        // an image reference must point to our own uploads, nothing else
+        if (complaint.getImageUrl() != null && !complaint.getImageUrl().startsWith("/uploads/")) {
+            complaint.setImageUrl(null);
+        }
         Complaint saved = service.create(complaint);
         return ResponseEntity.ok(Map.of(
                 "message", "Complaint submitted successfully.",

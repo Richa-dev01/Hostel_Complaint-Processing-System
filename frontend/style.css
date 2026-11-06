@@ -41,3 +41,6 @@ button.danger:hover { background: #a01f1f; }
 .badge.resolved { background: #d6f0dc; color: #1a7f37; }
 #managePanel button { margin-right: 8px; }
 @media (max-width: 800px) { .filters { grid-template-columns: 1fr 1fr; } }
+
+.evidence { display: block; max-width: 320px; max-height: 240px; border: 1px solid #ddd;
+            border-radius: 6px; margin: 8px 0 12px; }
