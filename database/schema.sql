@@ -34,6 +34,7 @@ CREATE TABLE complaint (
   updated_at DATETIME,
   resolved_at DATETIME,
   resolution_remarks VARCHAR(500),
+  assigned_to VARCHAR(100),
   FOREIGN KEY (student_id) REFERENCES student(student_id),
   FOREIGN KEY (category_id) REFERENCES category(category_id)
 );

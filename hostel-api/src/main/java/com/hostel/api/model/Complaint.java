@@ -40,4 +40,7 @@ public class Complaint {
 
     @Column(name = "resolution_remarks")
     private String resolutionRemarks;
+
+    @Column(name = "assigned_to")
+    private String assignedTo;
 }
