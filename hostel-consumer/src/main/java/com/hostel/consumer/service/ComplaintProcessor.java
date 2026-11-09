@@ -47,6 +47,7 @@ public class ComplaintProcessor {
 
                 if (valid) {
                     c.setStatus("SUBMITTED");
+                    c.setPriority("MEDIUM");
                     c.setUpdatedAt(LocalDateTime.now());
                     repository.save(c);
                     sqsClient.deleteMessage(DeleteMessageRequest.builder()
