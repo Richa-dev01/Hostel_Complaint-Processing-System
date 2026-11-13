@@ -1,4 +1,4 @@
-const AUTH_API = "http://localhost:8080/api/auth";
+const AUTH_API = "http://43.204.142.187:8080/api/auth";
 
 // already logged in as a student? go straight to the dashboard
 if (localStorage.getItem("token") && localStorage.getItem("role") === "STUDENT") {

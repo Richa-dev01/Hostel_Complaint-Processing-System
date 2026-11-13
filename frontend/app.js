@@ -1,4 +1,4 @@
-const SERVER = "http://localhost:8080";
+const SERVER = "http://43.204.142.187:8080";
 const API = SERVER + "/api/complaints";
 const UPLOAD_API = SERVER + "/api/uploads";
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;

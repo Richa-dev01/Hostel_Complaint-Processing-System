@@ -1,4 +1,4 @@
-const ADMIN_LOGIN_API = "http://localhost:8080/api/auth/admin/login";
+const ADMIN_LOGIN_API = "http://43.204.142.187:8080/api/auth/admin/login";
 
 // already logged in as admin? go straight to the dashboard
 if (localStorage.getItem("token") && localStorage.getItem("role") === "ADMIN") {

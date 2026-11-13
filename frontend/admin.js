@@ -1,4 +1,4 @@
-const API = "http://localhost:8080/api/admin/complaints";
+const API = "http://43.204.142.187:8080/api/admin/complaints";
 
 const CATEGORIES = {
   1: "Electrical", 2: "Plumbing", 3: "Cleaning", 4: "Wi-Fi/Internet",
@@ -119,7 +119,7 @@ function openPanel(c) {
   photoBox.textContent = "";
   if (c.imageUrl) {
     const img = document.createElement("img");
-    img.src = "http://localhost:8080" + c.imageUrl;
+    img.src = "http://43.204.142.187:8080" + c.imageUrl;
     img.className = "evidence";
     photoBox.appendChild(img);
   }
